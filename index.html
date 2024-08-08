@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111; /* Dark background */
+            color: #e4e4e7; /* Light text */
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #1a1a1a;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #c0c0c0;
+        }
+
+        header nav a {
+            color: #9ca3af;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #fff;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #e4e4e7;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            color: #9ca3af;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        /* Slider for Featured Projects */
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding-bottom: 10px;
+            scroll-behavior: smooth;
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .card {
+            background-color: #1a1a1a;
+            border: 1px solid #2d2d2d;
+            border-radius: 8px;
+            padding: 20px;
+            min-width: 300px;
+            flex-shrink: 0;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+
+        .card h3 {
+            color: #e4e4e7;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #9ca3af;
+            margin-bottom: 15px;
+        }
+
+        .card a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        /* About Section with Side Image */
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .about-content .text {
+            flex: 1;
+        }
+
+        .about-content .image {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .about-content .image img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        /* Skills Section with Small Cards */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-card {
+            background-color: #1a1a1a;
+            border: 1px solid #2d2d2d;
+            border-radius: 8px;
+            padding: 10px 20px;
+            color: #e4e4e7;
+            font-weight: bold;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background-color: #1a1a1a;
+            border: 1px solid #2d2d2d;
+            border-radius: 8px;
+            padding: 10px;
+            transition: transform 0.3s, border-color 0.3s;
+            text-align: center;
+        }
+
+        .video-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+
+        .video-card h4 {
+            color: #e4e4e7;
+            font-size: 1.2rem;
+        }
+
+        .video-card a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .video-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Social Media Icons */
+        #social-media .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #social-media .card ul li {
+            margin-bottom: 10px;
+        }
+
+        #social-media .card ul li a {
+            color: #e4e4e7;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        #social-media .card ul li a:hover {
+            color: #3b82f6;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Muburi Njuguna</h1>
+        <p>Mobile Application Developer</p>
+        <nav>
+            <a href="#summary">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#social-media">Contact</a>
+        </nav>
+    </header>
+
+    <section id="summary">
+        <div class="about-content">
+            <div class="text">
+                <h2>About Muburi Njuguna</h2>
+                <p>Muburi Njuguna is a passionate mobile application developer with a solid background in software development and user experience design.</p>
+            </div>
+            <div class="image">
+                <img src="./back.jpg" alt="About Muburi Njuguna">
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="carousel">
+            <div class="card">
+                <h3>Autobiography</h3>
+                <p>A detailed look into my life and career.</p>
+                <a href="./A journey of Growth and Exploration.docx" target="_blank">Read Documentation</a>
+            </div>
+            <div class="card">
+                <h3>My Autobiography</h3>
+                <p>PPT slides</p>
+                <a href="./A-Journey-of-Growth-and-Exploration.pptx" target="_blank">View PPT</a>
+            </div>
+            <div class="card">
+                <h3>Cv</h3>
+                <p>English Version</p>
+                <a href="./MuburiresumeEnglish.pdf" target="_blank">View Slides</a>
+            </div>
+	<div class="card">
+                <h3>CV</h3>
+                <p>Swahili</p>
+                <a href="./sWA.pdf" target="_blank">View Slides</a>
+            </div>
+	<div class="card">
+                <h3>CV</h3>
+                <p>KIKUYU</p>
+                <a href="./kIKU.pdf" target="_blank">View Slides</a>
+            </div>
+	<div class="card">
+                <h3>PHOTOGRAPHIC ESSAY</h3>
+                <p>Illuminating the future of Africa</p>
+                <a href="./PHOTOGRAPHIC ESSAY.docx" target="_blank">View Slides</a>
+            </div>	
+	<div class="card">
+                <h3>Gender awareness</h3>
+                <p>Role of Gender awareness</p>
+                <a href="./Role of Gender awareness.pptx" target="_blank">View Slides</a>
+            </div>
+	<div class="card">
+                <h3>Innovation in Tech</h3>
+                <p>Pioneering advancements in cloud-based solutions.</p>
+                <a href="./INNOVATION IN TECH.pptx" target="_blank">View Slides</a>
+            </div>
+	<div class="card">
+                <h3>Innovation in Tech</h3>
+                <p>Word document</p>
+                <a href="./Innovation in Tech Cloud Computing.docx" target="_blank">View Slides</a>
+            </div>
+	<div class="card">
+                <h3>Impact of African Culture on Information Technology</h3>
+                <p>word document</p>
+                <a href="./Impact of African Culture on Information Technology.docx" target="_blank">View Slides</a>
+            </div>
+	<div class="card">
+                <h3>Innovation in Tech</h3>
+                <p>Addressing the Challenges of Climate Change in Modern Society.docx</p>
+                <a href="./Addressing the Challenges of Climate Change in Modern Society.docx" target="_blank">View Slides</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">Python</div>
+            <div class="skill-card">Android Development</div>
+            <div class="skill-card">Java</div>
+        </div>
+    </section>
+
+    <section id="youtube">
+        <h2>Videos</h2>
+        <div class="video-grid">
+            <div class="video-card">
+                <img src="https://img.youtube.com/vi/VIDEO_ID_1/0.jpg" alt="Video 1">
+                <h4>Video Title 1</h4>
+                <a href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank">Watch Now</a>
+            </div>
+            <div class="video-card">
+                <img src="https://img.youtube.com/vi/VIDEO_ID_2/0.jpg" alt="Video 2">
+                <h4>Video Title 2</h4>
+                <a href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank">Watch Now</a>
+            </div>
+            <div class="video-card">
+                <img src="https://img.youtube.com/vi/VIDEO_ID_3/0.jpg" alt="Video 3">
+                <h4>Video Title 3</h4>
+                <a href="https://www.youtube.com/watch?v=VIDEO_ID_3" target="_blank">Watch Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="social-media">
+        <h2>Connect with Me</h2>
+        <div class="card">
+            <h3>Follow Me</h3>
+            <ul>
+                <li><a href="https://github.com/Muburii" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/brian-muburi-7788331bb" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                <li><a href="https://wa.me/+254746590559" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+            </ul>
+        </div>
+    </section>
+</body>
+</html>
